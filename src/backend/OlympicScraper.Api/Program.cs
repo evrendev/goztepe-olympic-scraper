@@ -76,14 +76,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Swagger UI — tüm ortamlarda açık (production'da kısıtlamak istersen if bloğuna al)
+// Swagger UI
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Olympics API v1");
     options.RoutePrefix = "swagger"; // → https://localhost:PORT/swagger
     options.DocumentTitle = "Göztepe Olympics API";
-    options.DefaultModelsExpandDepth(-1); // Model şemalarını kapalı başlat
+    options.DefaultModelsExpandDepth(-1); //Hide schema models by default
 });
 
 app.UseHttpsRedirection();
